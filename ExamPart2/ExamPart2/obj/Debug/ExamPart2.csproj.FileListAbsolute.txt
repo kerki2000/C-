@@ -1,0 +1,6 @@
+c:\users\ol\documents\visual studio 2015\Projects\ExamPart2\ExamPart2\bin\Debug\ExamPart2.exe.config
+c:\users\ol\documents\visual studio 2015\Projects\ExamPart2\ExamPart2\bin\Debug\ExamPart2.exe
+c:\users\ol\documents\visual studio 2015\Projects\ExamPart2\ExamPart2\bin\Debug\ExamPart2.pdb
+c:\users\ol\documents\visual studio 2015\Projects\ExamPart2\ExamPart2\obj\Debug\ExamPart2.csprojResolveAssemblyReference.cache
+c:\users\ol\documents\visual studio 2015\Projects\ExamPart2\ExamPart2\obj\Debug\ExamPart2.exe
+c:\users\ol\documents\visual studio 2015\Projects\ExamPart2\ExamPart2\obj\Debug\ExamPart2.pdb
