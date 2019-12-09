@@ -22,7 +22,7 @@
             <TextBlock Text="ID" Grid.Column="0" Grid.Row="0" Margin="5" FontSize="12" FontWeight="DemiBold"/>
             <TextBox x:Name="txtId" Grid.Column="0" Grid.Row="1"  Margin="5"/>
             <TextBlock Text="Password" Grid.Column="0" Grid.Row="2" Margin="5" FontSize="12" FontWeight="DemiBold"/>
-            <TextBox x:Name="txtPassword" Grid.Column="0" Grid.Row="3"  Margin="5"/>
+            <PasswordBox x:Name="txtPassword" Grid.Column="0" Grid.Row="3" PasswordChar="*"  Margin="5"/>
             <Button x:Name="btnLogin" Content="Login" Grid.Column="0" Grid.Row="4"   Height="40" Margin="5,10" Click="BtnLogin_Click"/>
         </Grid>
     </StackPanel>

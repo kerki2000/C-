@@ -50,7 +50,7 @@ namespace BankApp
         private void BtnUpdateUser_Click(object sender, RoutedEventArgs e)
         {
             if (dgUsers.SelectedItem == null)
-                MessageBox.Show("Please selected an User for Update");
+                MessageBox.Show("Please select an User for Update");
             else
             {
                 UpdateUserAccount updateUserAccount = new UpdateUserAccount(this);
@@ -60,7 +60,10 @@ namespace BankApp
 
         private void BtnDeleteUser_Click(object sender, RoutedEventArgs e)
         {
-            if (dgUsers.SelectedItem != null && MessageBox.Show("Are you sure you want to delete?\n" +
+            if (dgUsers.SelectedItem == null)
+                MessageBox.Show("Please select an User for Delete");
+
+            else if (dgUsers.SelectedItem != null && MessageBox.Show("Are you sure you want to delete?\n" +
                "This will delete the Account records as well", "Confirm Delete"
                , MessageBoxButton.YesNo, MessageBoxImage.Stop) == MessageBoxResult.Yes)
             {

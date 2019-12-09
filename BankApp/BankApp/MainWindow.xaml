@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:BankApp"
         mc:Ignorable="d"
         Title="Bank" Height="320" Width="350">
-    <StackPanel>
+    <Border Background="Azure">
+        <StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -29,7 +30,7 @@
             <TextBlock Text="ID" Grid.Column="0" Grid.Row="1" Margin="10,10,10,10" FontSize="12" FontWeight="DemiBold"/>
             <TextBlock x:Name="txtbId" Text ="" Grid.Column="0" Grid.Row="1"  Grid.ColumnSpan="4" Margin="80,10,10,10"/>
             <TextBlock Text="Balance" Grid.Column="0" Grid.Row="2" Margin="10,10,10,10" FontSize="12" FontWeight="DemiBold"/>
-            <TextBox x:Name="txtBalance" Grid.Column="0" Grid.Row="2" IsEnabled="False"  Grid.ColumnSpan="4" Margin="80,10,10,10"/>
+            <TextBox x:Name="txtBalance" Grid.Column="0" Grid.Row="2" IsReadOnly="True"  IsEnabled="False"  Grid.ColumnSpan="4" Margin="80,10,10,10"/>
             <TextBlock Text="Amount" Grid.Column="0" Grid.Row="3" Margin="10,10,10,10" FontSize="12" FontWeight="DemiBold"/>
             <TextBox x:Name="txtAmount" Grid.Column="0" Grid.Row="3"  IsEnabled="False" Grid.ColumnSpan="4" Margin="80,10,10,10"/>
 
@@ -44,4 +45,5 @@
 
         </Grid>
     </StackPanel>
+    </Border>
 </Window>

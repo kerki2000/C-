@@ -41,17 +41,17 @@ namespace BankApp
             int id;
             if (int.TryParse(txtId.Text.ToString(),out id))
                 { 
-                user = repozitory.Login(id, txtPassword.Text);
+                user = repozitory.Login(id, txtPassword.Password.ToString());
 
                 if ((user == null))
                 {
                     MessageBox.Show("Invalid ID or Password");
-                    this.DialogResult = false;
+                    
 
                 }
                 else if ((user.UserAccount.AccountNumber == 19) && (user.Password == "admin"))
                 {
-                    MessageBox.Show("Welcome admin " + user.Name);
+                    MessageBox.Show("Welcome " + user.Name);
                     this.DialogResult = false;
                     this.Close();
                     AdminPanel adminPanel = new AdminPanel();
@@ -64,7 +64,7 @@ namespace BankApp
                     MessageBox.Show("Welcome " + user.Name);
                     _mainWindow.btnDeposit.IsEnabled = true;
                     _mainWindow.btnWithDraw.IsEnabled = true;
-                    _mainWindow.txtBalance.IsEnabled = true;
+                  
                     _mainWindow.txtAmount.IsEnabled = true;
                     _mainWindow.txtbName.Text = user.Name;
                     _mainWindow.txtbId.Text = user.ID.ToString();
@@ -93,7 +93,7 @@ namespace BankApp
         }
         private void BtnLogin_Click(object sender, RoutedEventArgs e)
         {
-            if(string.IsNullOrEmpty(txtId.Text) || string.IsNullOrEmpty(txtPassword.Text))
+            if(string.IsNullOrEmpty(txtId.Text) || string.IsNullOrEmpty(txtPassword.Password.ToString()))
             {
                 MessageBox.Show("ID or Password Fields Cannot Be Empty");
 

@@ -47,8 +47,8 @@ namespace BankApp
             txtBalance.IsEnabled = false;
             txtbName.Text = string.Empty;
             txtbId.Text = string.Empty;
-            txtBalance.Text = 0.ToString("c2");
-            txtAmount.Text = 0.ToString("c2");
+            txtBalance.Text = string.Empty;
+            txtAmount.Text = string.Empty;
             txtAmount.IsEnabled = false;
             btnLogin.IsEnabled = true;
             btnLogin.Visibility = Visibility.Visible;
@@ -86,7 +86,7 @@ namespace BankApp
                 repozitory.DepositBalance(user, double.Parse(txtAmount.Text));
                 txtBalance.Text = repozitory.GetBalance(user).ToString("c2");
                 repozitory.DepositTransactionToLogFile(user, "../../../log.txt", double.Parse(txtAmount.Text));
-
+                txtAmount.Text = string.Empty;
 
             }
         }
@@ -99,12 +99,17 @@ namespace BankApp
                 MessageBox.Show("Amount is Empty or Invalid.Enter Valid Amount ");
 
             }
+            else if(double.Parse(txtBalance.Text.Substring(1)) < double.Parse(txtAmount.Text))
+            {
+                MessageBox.Show("Amount required is exceed Balance \n You cannot Withdraw more than "+ txtBalance.Text);
+            }
             else
             {
                 CheckUserAmount();
                 repozitory.WithDrawBalance(user, double.Parse(txtAmount.Text));
                 txtBalance.Text = repozitory.GetBalance(user).ToString("c2");
                 repozitory.WithDrawTransactionToLogFile(user, "../../../log.txt", double.Parse(txtAmount.Text));
+                txtAmount.Text = string.Empty;
 
 
             }

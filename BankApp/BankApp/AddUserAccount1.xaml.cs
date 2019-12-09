@@ -36,7 +36,7 @@ namespace BankApp
             return new User()
             {
                 Name = txtName.Text,
-                Password = txtPassword.Text,
+                Password = txtPassword.Password.ToString(),
 
                 UserAccount = new Account()
                
@@ -45,14 +45,19 @@ namespace BankApp
 
         private void BtnAddUser_Click(object sender, RoutedEventArgs e)
         {
-             if(string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtPassword.Text))
-            
+            if (string.IsNullOrEmpty(txtName.Text) || string.IsNullOrEmpty(txtPassword.Password.ToString()))
+            {
+
                 MessageBox.Show("Name or Password Fields Cannot Be Empty");
+            }
+            else
+            {
 
-            repozitory.AddNewUser(GenerateNewUser());
+                repozitory.AddNewUser(GenerateNewUser());
 
-            this._adminPanel.LoadData();
-            this.Close();
+                this._adminPanel.LoadData();
+                this.Close();
+            }
         }
         
     }

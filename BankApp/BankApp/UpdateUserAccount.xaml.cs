@@ -39,24 +39,23 @@ namespace BankApp
         }
         private void BtnUpdateUser_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNewName.Text) || string.IsNullOrEmpty(txtNewPassword.Text))
+            if (string.IsNullOrEmpty(txtNewName.Text) || string.IsNullOrEmpty(txtNewPassword.Password.ToString()))
             {
                 MessageBox.Show("New Name or New Password Fields Cannot Be Empty");
             }
-            else {
+            else
+            {
 
                 User user = _adminPanel.dgUsers.SelectedItem as User;
                 
                 user.Name = txtNewName.Text;
-                user.Password = txtNewPassword.Text;
+                user.Password = txtNewPassword.Password.ToString();
 
                 repozitory.UpdateUser(user);
                 this._adminPanel.LoadData();
+                this.Close();
             }
-          
-
-           
-            this.Close();
+             
         }
     }
 }

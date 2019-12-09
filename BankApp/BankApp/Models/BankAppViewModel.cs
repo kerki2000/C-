@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace BankApp.Models
 {
@@ -109,12 +110,13 @@ namespace BankApp.Models
             {
                 using (StreamWriter streamWriter = new StreamWriter(fileName, true))
                 {
+                    string date = DateTime.Now.ToString();
+                    string[] newdate = date.Split(' ');
 
-                  
-                        streamWriter.WriteLine(DateTime.Now + "|" +"#"+ user.UserAccount.AccountNumber + "|" + "Deposit" + "|"
-                            + user.UserAccount.Balance.ToString("c2") + "|" + (user.UserAccount.Balance+deposit).ToString("c2") );
-                   
+                    streamWriter.WriteLine("[" + newdate[0] + "|" + newdate[1] + "]" + " | " + "#" + user.UserAccount.AccountNumber + " | " + "D" + " | "
+                            + (user.UserAccount.Balance-deposit).ToString("c2") + " | " + user.UserAccount.Balance.ToString("c2") );
 
+                    MessageBox.Show("Transaction successfully!");
 
                 }
             }
@@ -135,11 +137,13 @@ namespace BankApp.Models
                 using (StreamWriter streamWriter = new StreamWriter(fileName, true))
                 {
 
+                    string date = DateTime.Now.ToString();
+                    string[] newdate = date.Split(' ');
 
-                    streamWriter.WriteLine(DateTime.Now + "|" + "#" + user.UserAccount.AccountNumber + "|" + "Withdraw" + "|"
-                        + user.UserAccount.Balance.ToString("c2") + "|" + (user.UserAccount.Balance + withdraw).ToString("c2"));
+                    streamWriter.WriteLine("["+ newdate[0]+ "|"+ newdate[1] + "]" + " | " + "#" + user.UserAccount.AccountNumber + " | " + "W" + " | "
+                        + (user.UserAccount.Balance + withdraw).ToString("c2") + " | " + user.UserAccount.Balance.ToString("c2"));
 
-
+                    MessageBox.Show("Transaction successfully!");
 
                 }
             }
